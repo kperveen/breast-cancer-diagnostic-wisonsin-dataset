@@ -7,4 +7,4 @@ X = dataset.iloc[:, 1:31].values
 Y = dataset.iloc[:, 31].values
 
 dataset.head()
-print("Cancer data set dimensions : {}".format(dataset.shape))
+print("Dimensions : {}".format(dataset.shape))
