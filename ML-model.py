@@ -47,3 +47,57 @@ X_test = sc.fit_transform(X_test)
 
 print("X_train: ", X_train)
 print("X_test: ", X_test)
+
+#using logistic regression algo on the training set
+X_train = X_train.astype(int)
+print("X_train: ", X_train)
+
+Y_train = Y_train.astype(int)
+print("Y_train: ", Y_train)
+classifier = LogisticRegression(random_state = 0)
+for i in Y_train:
+    if i != 0:
+        classifier.fit(X_train, Y_train)    
+        break
+print("All in one class LR")
+
+
+#Using KNeighborsClassifier Method of neighbors class to use Nearest Neighbor algorithm
+classifier = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
+classifier.fit(X_train, Y_train)
+
+#Using SVC method of svm class to use Support Vector Machine Algorithm
+classifier = SVC(kernel = 'linear', random_state = 0)
+for i in Y_train:
+    if i != 0:
+        classifier.fit(X_train, Y_train)    
+        break
+print("All in one class SVM")
+
+#Using SVC method of svm class to use Kernel SVM Algorithm
+classifier = SVC(kernel = 'rbf', random_state = 0)
+for i in Y_train:
+    if i != 0:
+        classifier.fit(X_train, Y_train)    
+        break
+print("All in one class Kernel SVM")
+
+#Using GaussianNB method of naïve_bayes class to use Naïve Bayes Algorithm
+classifier = GaussianNB()
+classifier.fit(X_train, Y_train)
+        
+#Using DecisionTreeClassifier of tree class to use Decision Tree Algorithm
+classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+
+#Using RandomForestClassifier method of ensemble class to use Random Forest Classification algorithm
+classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+Y_pred = classifier.predict(X_test)
+print(Y_pred)
+print(Y_test)
+
+cm = confusion_matrix(Y_test, Y_pred)
+print(cm)
