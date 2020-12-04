@@ -1,8 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from pandas import DataFrame
+from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
 
 
 dataset = pd.read_csv('/Users/meharshahani/Downloads/data.csv')
